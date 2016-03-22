@@ -1,27 +1,49 @@
-<h1>Listing Questions</h1>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Head Starter </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <%= link_to 'Post a New Question', new_question_path %></li>
+        <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
+        <li> <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+          <%= link_to('Login', new_user_session_path)  %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
+<div class="pageheader">
+<h1>Questions</h1>
+</div>
+
+<div class="questionslisting">
 <ul>
-
 <% @questions.each do |question| %>
+<li> <div class="questiontitle"> <%= question.title %> </div> </li>
 
-<li> <%= question.title %> </li>
-<li> <%= link_to question.questions_content, question %> </li>
-<li> <%= question.user.user_name %> </li>
-<li> <%= question.education_level.edu_level %> </li>
-<li> <%= question.subject.subject_name %> </li>
+<li> <%= link_to question.questions_content, question %> <br> <%= time_ago_in_words(question.created_at) + " ago" %>
+<%= question.user.user_name %> </li>
+
+<span class="label label-primary"> <%= question.education_level.edu_level %> </span>
+<span class="label label-success"><%= question.subject.subject_name %> </span> <br><br>
 <% end %>
 
 </ul>
+</div>
 
 
-<%= link_to 'Post a New Question', new_question_path %> <br>
-
-<% if user_signed_in? %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% else %>
-<%= link_to('Login', new_user_session_path)  %>
-<% end %><br>
-
-<%= link_to 'Edit Profile', edit_user_path(current_user.id) %> <br>
-<%= link_to 'My Question Board', user_path(current_user.id) %> <br>
+</div>

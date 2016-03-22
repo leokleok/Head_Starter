@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user, only: [:create, :destroy]
+  # before_action :current_user, only: [:create, :destroy]
 
 def new
   @user = User.new

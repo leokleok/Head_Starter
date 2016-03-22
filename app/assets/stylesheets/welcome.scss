@@ -1,3 +1,58 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#welcome {
+ position:absolute;
+   left: 0;
+   top: 40%;
+   width: 100%;
+   text-align: center;
+}
+
+.welcometext {
+  color:white;
+  position: relative;
+  bottom: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+}
+
+.welcomebutton {
+  display: flex;
+  justify-content: center;
+}
+
+.registration {
+ text-align: center;
+}
+
+.login{
+ text-align: center;
+}
+
+.pageheader {
+  text-align: center;
+}
+
+.questionslisting {
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+.questiontitle {
+  font-size: 21px;
+  color: #317EAC;
+}
+
+.solvebox {
+  position: relative;
+    left: 370px;
+
+}

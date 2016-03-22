@@ -9,10 +9,12 @@ class QuestionsController < ApplicationController
     @questions = Question.find(params[:id])
     @answer = Answer.new
     @answerlist = Answer.where(:question_id => @questions.id)
+
     # print @answerlist.inspect
   end
 
   def new
+    @user = User.find(current_user.id)
     @question = Question.new
     @subjects = Subject.all
     @educationLevels = EducationLevel.all
@@ -33,8 +35,20 @@ class QuestionsController < ApplicationController
   def destroy
       @question = Question.find(params[:id])
       @question.destroy
-      redirect_to :back 
+    #   if request.original_url == questions_path
+    #   redirect_to questions_path
+    # end
+    redirect_to :back
   end
+
+  # def destroy
+  #     @question = Question.find(params[:id])
+  #     @question.destroy
+  #
+  #     redirect_to  :back
+  #   end
+
+
 
   private
 

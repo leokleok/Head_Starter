@@ -1,15 +1,33 @@
-<div class="container-fluid">
-  <div class="row">
 
-    <h2>Hello World</h2>
 
-  </div>
+<%= image_tag("headstarter_welcome.jpg") %>
+
+
+
+<div id = "welcome">
+
+<div class= "welcometext">
+<h1><i class="fa fa-caret-up fa-lg"> </i> Head Starter </h1>
+<br>
+
+<h4> "Building collaborative communities with <br> accessible enrichment knowledge for everyone." </h4>
+
 </div>
 
+  <div class="welcomebutton">
+
+
+<h3><button type="button" class="btn btn-default">
 <% if user_signed_in? %>
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 <% else %>
 <%= link_to('Login', new_user_session_path)  %>
 <% end %>
+</button></h3>
 
-<%= link_to "Sign Up", new_user_registration_path %>
+
+<h3><button type="button" class="btn btn-default"> <%= link_to "Sign Up", new_user_registration_path %></button></h3>
+
+
+   </div>
+</div>

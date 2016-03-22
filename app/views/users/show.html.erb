@@ -1,30 +1,53 @@
-<%= link_to "Back to Questions", questions_path %> <br>
-<%= link_to 'Edit Profile', edit_user_path %><br>
-<%= link_to 'Post new Questions', new_question_path %><br>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Head Starter </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <%= link_to "Back to Questions", questions_path %> </li>
+        <li> <%= link_to 'Post a New Question', new_question_path %></li>
+      </ul>
 
 
+      <ul class="nav navbar-nav navbar-right">
 
-<% if user_signed_in? %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<% else %>
-<%= link_to('Login', new_user_session_path)  %>
-<% end %>
+        <li><%= link_to 'Edit Profile', edit_user_path %></li>
+        <li> <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+          <%= link_to('Login', new_user_session_path)  %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 
 <!-- <h1> Profile </h1> -->
 
+<div class = "pageheader">
 <h1> Hello <%= @user.user_name %>! </h1>
 
 <h4> <%= @user.email %> </h4>
+</div>
+
+<br>
+<br>
 
 
+<h3> Your Questions </h3>
 
-<h5> Your past Questions </h5>
-
-<% @questions.each do |question| %><br>
+<div class = "pastquestions">
+<% @questions.each do |question| %> <br>
 <%= question.title %> <br><br>
-<%= link_to question.questions_content, question %> <br><br>
-<%= link_to "Delete", question_path(question.id), method: :delete, data:{ confirm: "Are you sure you want to delete?"} %><br>
+<%= link_to question.questions_content, question %>  <br><br>
+<%= time_ago_in_words(question.created_at) + " ago" %>
+<%= link_to "Delete", question_path(question.id), method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>  <br>
 <% end %>
 
+</div>
 
 <!-- create a delete button on every question and user can only delete its own question -->
