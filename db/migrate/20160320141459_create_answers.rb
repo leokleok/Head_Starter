@@ -5,7 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :user_id
       t.integer :question_id
       t.integer :num_of_votes
-      
+
 
       t.timestamps null: false
     end

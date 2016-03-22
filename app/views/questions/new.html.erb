@@ -1,0 +1,31 @@
+<h1>Post a Question</h1>
+
+
+<%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+ <%= f.label "Education Level" %> <br>
+ <%= f.collection_select(:education_level_id , @educationLevels, :id, :edu_level) %><br><br>
+
+  <%= f.label "Subject" %> <br>
+  <%= f.collection_select(:subject_id , @subjects, :id, :subject_name) %><br><br>
+
+  <%= f.label "Title" %> <br>
+  <%= f.text_field :title, size: "80x20"%> <br><br>
+
+  <%= f.label "Question" %>
+  <%= f.text_area :questions_content, size: "80x20" %>
+  <%= f.submit "Post" %>
+  <% end %>
+
+  <%= link_to "Back to Questions", questions_path %> <br>
+  <%= link_to 'My Question Board', user_path(current_user.id) %> <br>
+  <%= link_to 'Edit Profile', edit_user_path(current_user.id) %> <br>
+
+  <% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+  <% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+  <% end %>

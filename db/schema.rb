@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20160320141952) do
     t.text     "questions_content"
     t.integer  "user_id"
     t.integer  "num_of_views"
-    t.integer  "level_id"
+    t.integer  "education_level_id"
     t.integer  "subject_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "subjects", force: :cascade do |t|

@@ -13,7 +13,7 @@ User.destroy_all
   { subject_name: "Math"},
   { subject_name: "Science"},
 ].each do |subject|
-  Subject.create( subject)
+  Subject.create(subject)
 end
 
 
@@ -31,7 +31,7 @@ end
     questions_content: "Cliche dreamcatcher ugh, semiotics pop-up PBR&B viral. Mlkshk cornhole messenger bag, chicharrones keffiyeh quinoa whatever disrupt street art. Literally brooklyn mixtape intelligentsia XOXO chartreuse.",
     user_id: 1,
     num_of_views: 5,
-    level_id: 1,
+    education_level_id: 1,
     subject_id: 2
   },
 
@@ -40,9 +40,17 @@ end
     questions_content: "Pug crucifix cornhole offal. Godard everyday carry affogato, shoreditch scenester plaid selfies. Intelligentsia cronut ramps bitters, disrupt tacos mustache leggings franzen thundercats everyday carry twee post-ironic.",
     user_id: 1,
     num_of_views:10,
-    level_id: 2,
+    education_level_id: 2,
     subject_id: 3
-    }
+  },
+
+    { title: "How to do this question?",
+      questions_content: "Pug crucifix cornhole offal. Godard everyday carry affogato, shoreditch scenester plaid selfies. Intelligentsia cronut ramps bitters, disrupt tacos mustache leggings franzen thundercats everyday carry twee post-ironic.",
+      user_id: 2,
+      num_of_views:10,
+      education_level_id: 3,
+      subject_id: 1
+      }
 
 ].each do |question|
   Question.create(question)
@@ -59,7 +67,12 @@ end
   { answers_content: "Pug crucifix cornhole offal. Godard everyday carry affogato, shoreditch scenester plaid selfies. ",
     user_id: 2,
     question_id: 1,
-    num_of_votes: 100 }
+    num_of_votes: 100 },
+
+    { answers_content: "Godard everyday carry affogato, shoreditch scenester plaid selfies. ",
+      user_id: 3,
+      question_id: 2,
+      num_of_votes: 100 }
 
 ].each do |answer|
   Answer.create(answer)
@@ -71,15 +84,22 @@ end
     last_name: "Lim",
     user_name: "Diana",
     email: "diana@ymail.com",
-    password: "123!!!12",
-    password_confirmation: "123!!!12" },
+    password: "12345678",
+    password_confirmation: "12345678" },
 
   { first_name: "Stella",
     last_name: "Fong",
     user_name: "Stell",
     email: "stella@ymail.com",
-    password: "123!!!12",
-    password_confirmation: "123!!!12" }
+    password: "12345678",
+    password_confirmation: "12345678" },
+
+  {   first_name: "Jenny",
+      last_name: "Fong",
+      user_name: "Jen",
+      email: "jenny@ymail.com",
+      password: "12345678",
+      password_confirmation: "12345678" }
 
 ].each do |user|
   User.create(user)

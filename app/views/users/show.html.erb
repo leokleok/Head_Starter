@@ -1,0 +1,29 @@
+<%= link_to "Back to Questions", questions_path %> <br>
+<%= link_to 'Edit Profile', edit_user_path %><br>
+
+
+
+<% if user_signed_in? %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% else %>
+<%= link_to('Login', new_user_session_path)  %>
+<% end %>
+
+<!-- <h1> Profile </h1> -->
+
+<h1> Hello <%= @user.user_name %>! </h1>
+
+<h4> <%= @user.email %> </h4>
+
+
+
+<h5> Your past Questions </h5>
+
+<% @questions.each do |question| %>
+<%= question.title %> <br>
+<%= question.questions_content %> <br>
+<%= link_to "Delete", user_path, method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>
+<% end %>
+
+
+<!-- create a delete button on every question and user can only delete its own question -->

@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :questions_content
       t.integer :user_id
       t.integer :num_of_views
-      t.integer :level_id
+      t.integer :education_level_id
       t.integer :subject_id
 
       t.timestamps null: false

@@ -1,0 +1,30 @@
+<h1>Listing Questions</h1>
+
+
+<ul>
+
+<% @questions.each do |question| %>
+
+<li> <%= question.title %> </li>
+<li> <%= link_to question.questions_content, question %> </li>
+<li> <%= question.user.user_name %> </li>
+<li> <%= question.education_level.edu_level %> </li>
+<li> <%= question.subject.subject_name %> </li>
+
+
+
+<% end %>
+
+</ul>
+
+
+<%= link_to 'Post a New Question', new_question_path %> <br>
+
+<% if user_signed_in? %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% else %>
+<%= link_to('Login', new_user_session_path)  %>
+<% end %><br>
+
+<%= link_to 'Edit Profile', edit_user_path(current_user.id) %> <br>
+<%= link_to 'My Question Board', user_path(current_user.id) %> <br>
