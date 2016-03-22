@@ -11,8 +11,9 @@ end
 
 def show
   @user = User.find(params[:id])
-  @questions = Question.all
-  # @question.user_id = current_user.id
+  @questions = Question.where(user_id: current_user.id)
+
+  # this is to be able to allow the user to see or show her own created questions
 end
 
 def edit
@@ -23,7 +24,8 @@ def update
   @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
-      redirect_to questions_path
+      sign_in(@user, :bypass => true)
+      redirect_to user_path
     else
       render 'edit'
     end

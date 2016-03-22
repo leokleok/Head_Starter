@@ -1,5 +1,6 @@
 <%= link_to "Back to Questions", questions_path %> <br>
 <%= link_to 'Edit Profile', edit_user_path %><br>
+<%= link_to 'Post new Questions', new_question_path %><br>
 
 
 
@@ -19,10 +20,10 @@
 
 <h5> Your past Questions </h5>
 
-<% @questions.each do |question| %>
-<%= question.title %> <br>
-<%= question.questions_content %> <br>
-<%= link_to "Delete", user_path, method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>
+<% @questions.each do |question| %><br>
+<%= question.title %> <br><br>
+<%= link_to question.questions_content, question %> <br><br>
+<%= link_to "Delete", question_path(question.id), method: :delete, data:{ confirm: "Are you sure you want to delete?"} %><br>
 <% end %>
 
 

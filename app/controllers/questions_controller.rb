@@ -2,19 +2,12 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.order("created_at DESC")
+
   end
 
   def show
     @questions = Question.find(params[:id])
     @answer = Answer.new
-    # @answer.user_id = current_user.id
-    # if @answer.save
-    # redirect_to action: "show"
-    # else
-    # render action: "new"
-    # end
-    # print @questions.id
-    # @answerlist = Answer.where(:question_id == @questions.id)
     @answerlist = Answer.where(:question_id => @questions.id)
     # print @answerlist.inspect
   end
@@ -40,7 +33,7 @@ class QuestionsController < ApplicationController
   def destroy
       @question = Question.find(params[:id])
       @question.destroy
-      redirect_to questions_path
+      redirect_to :back 
   end
 
   private

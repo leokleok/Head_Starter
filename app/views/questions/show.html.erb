@@ -1,11 +1,11 @@
 <h1> Print Individual Questions here </h1>
 
 <%= @questions.title %>
-<%= @questions.questions_content %>
+<%= @questions.questions_content %><br>
 <%= @questions.user.user_name %>
 
 <!-- This is to allow current user to be able to delete its own posts and not other people's post -->
-<% if @questions.user_id == current_user.id %>
+<% if @questions.user_id == current_user.id %><br>
   <%= link_to "Delete", question_path, method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>
 <% end %>
 
@@ -17,13 +17,17 @@
 
 
 <h3>Post Your answers here</h3>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_for @answer, html: {class: "nifty_form"} do |f| %>
   <%= f.hidden_field :question_id, :value => @questions.id %>
-  <%= f.label :answers_content, "Post an answer" %>
-  <%= f.text_area :answers_content, size: "80x20" %>
-  <%= f.submit "Post" %>
-  <% end %>
 
+  <%= f.label " " %>
+  <%= f.text_area :answers_content, size: "80x10" %>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
 
 <%= link_to 'Back', questions_path %> <br>
 <%= link_to 'Edit Profile', edit_user_path(current_user.id) %><br>
