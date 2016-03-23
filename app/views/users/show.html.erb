@@ -27,18 +27,18 @@
 
 
 <!-- <h1> Profile </h1> -->
+<div class = "challenger">
+  <div class = "pageheader">
+  <!-- <h1> Hello <%= @user.user_name %>! </h1> -->
+  <!-- <h4> <%= @user.email %> </h4> -->
+  <h1> What I Have Learnt From The Community </h1>
+  </div>
 
-<div class = "pageheader">
-<h1> Hello <%= @user.user_name %>! </h1>
-
-<h4> <%= @user.email %> </h4>
-</div>
-
-<br>
-<br>
+  <br>
+  <br>
 
 
-<h3> Your Questions </h3>
+<h3> My Questions </h3>
 
 <div class = "pastquestions">
 <% @questions.each do |question| %> <br>
@@ -47,6 +47,8 @@
 <%= time_ago_in_words(question.created_at) + " ago" %>
 <%= link_to "Delete", question_path(question.id), method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>  <br>
 <% end %>
+
+</div>
 
 </div>
 
