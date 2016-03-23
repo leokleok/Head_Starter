@@ -14,6 +14,18 @@ class AnswersController < ApplicationController
     redirect_to question_path (@answer.question_id)
   end
 
+  def upvote
+    @answer = Answer.find(params[:id])
+    @answer.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+  @answer = Answer.find(params[:id])
+  @answer.downvote_by current_user
+  redirect_to :back
+end
+
   private
 
   def answer_params

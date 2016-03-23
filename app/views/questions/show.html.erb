@@ -41,7 +41,17 @@
 <h2> Answers </h2>
 <% @answerlist.each do |listanswers| %>
 <li> <%= listanswers.answers_content %> </li>
+<%= link_to like_answer_path(listanswers), method: :put do %>
+  Good Answer
+<%= listanswers.get_upvotes.size %> 
+<%= link_to dislike_answer_path(listanswers), method: :put do %>
+  Please Improve
+  <%= listanswers.get_downvotes.size %>
+     <% end %>
+  <% end %>
 <% end %>
+
+
 
 <br>
 <br>

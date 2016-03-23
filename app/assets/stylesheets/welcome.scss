@@ -3,10 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #welcome {
  position:absolute;
-   left: 0;
+  //  left: 0;
    top: 40%;
    width: 100%;
    text-align: center;
+}
+
+#brandname {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 30px;
+  color:#317EAC;
+  position:fixed;
+  left: 40px;
+  top: 30px;
+}
+
+  .starter {
+    color: #313131;
+  }
+
+#focuslearning {
+  font-size: 50px;
+  color:#317EAC;
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .welcometext {
@@ -21,6 +40,14 @@ img {
   opacity: 0.6;
 }
 
+.btn-default {
+  width: 150px;
+  padding: 10px;
+  margin: 5px;
+}
+
+
+
 .welcomebutton {
   display: flex;
   justify-content: center;
@@ -32,7 +59,9 @@ img {
 
 .login{
  text-align: center;
+ position: relative;
 }
+
 
 .pageheader {
   text-align: center;

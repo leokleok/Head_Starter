@@ -35,7 +35,7 @@
 <% @questions.each do |question| %>
 <li> <div class="questiontitle"> <%= question.title %> </div> </li>
 
-<li> <%= link_to question.questions_content, question %> <br> <%= time_ago_in_words(question.created_at) + " ago" %>
+<li> <%= link_to truncate(question.questions_content, :length => 150), question %> <br> <%= time_ago_in_words(question.created_at) + " ago" %>
 <%= question.user.user_name %> </li>
 
 <span class="label label-primary"> <%= question.education_level.edu_level %> </span>
