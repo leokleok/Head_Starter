@@ -6,8 +6,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li> <%= link_to "Back to Questions", questions_path %> </li>
-        <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
+        <li> <%= link_to "Hot Questions", questions_path %> </li>
+        <li> <%= link_to 'My Questions', user_path(current_user.id) %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -25,24 +25,27 @@
 </nav>
 
 <div class="pageheader">
-<h1> Hello <%= @user.user_name %>, post a question!</h1>
+<h1> Hi <%= @user.user_name %>! </h1>
+<h3> <span style="color: #454545"> Learn From The Community. </span> Ask a Question! </h3>
 </div>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-3">
-<%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
- <%= f.label "Education Level" %> <br>
- <%= f.collection_select(:education_level_id , @educationLevels, :id, :edu_level) %><br><br>
 
-  <%= f.label "Subject" %> <br>
+<%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+
+  <%= f.label "Question Level" %>  <br>
+ <%= f.collection_select(:education_level_id , @educationLevels, :id, :edu_level) %><br><br>
+<%= f.label "Subject" %>  <br>
   <%= f.collection_select(:subject_id , @subjects, :id, :subject_name) %><br><br>
 
   <%= f.label "Title" %> <br>
   <%= f.text_field :title, size: "80x20"%> <br><br>
 
   <%= f.label "Question" %><br>
-  <%= f.text_area :questions_content, size: "80x15" %>
-  <%= f.submit "Post",  class: "btn btn-primary" %>
+  <%= f.text_area :questions_content, size: "80x15" %> <br>
+  <%= f.submit "Help Me",  class: "btn btn-primary" %>
   <% end %>
+
   </div>
 </div>

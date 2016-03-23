@@ -9,37 +9,37 @@
       <ul class="nav navbar-nav">
         <li> <%= link_to 'New Question', new_question_path %></li>
         <% if user_signed_in? %>
-        <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
+        <li> <%= link_to 'My Questions', user_path(current_user.id) %></li>
         <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
 
-
         <li> <% if user_signed_in? %>
           <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           <% else %>
           <%= link_to('Login', new_user_session_path)  %>
-          <% end %>
+          <% end %> </li>
         </li>
       </ul>
+
     </div>
   </div>
 </nav>
 
 
 <div class="pageheader">
-<h1>Questions</h1>
+<h1>Hot Questions</h1>
 </div>
 
 <div class="questionslisting">
 <ul>
 <% @questions.each do |question| %>
-<li> <div class="questiontitle"> <%= question.title %> </div> </li>
+<li> <div class="questiontitle"> Title: <%= question.title %> </div> </li>
 
-<li> <%= link_to truncate(question.questions_content, :length => 150), question %> <br> <%= time_ago_in_words(question.created_at) + " ago" %>
-<%= question.user.user_name %> </li>
+<li> Question: <%= link_to truncate(question.questions_content, :length => 150), question %> <br> <%= time_ago_in_words(question.created_at) + " ago" %>
+by <%= question.user.user_name %> </li>
 
 <span class="label label-primary"> <%= question.education_level.edu_level %> </span>
 <span class="label label-success"><%= question.subject.subject_name %> </span> <br><br>

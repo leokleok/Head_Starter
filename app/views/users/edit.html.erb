@@ -6,9 +6,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li> <%= link_to "Back to Questions", questions_path %> </li>
+        <li> <%= link_to "Hot Questions", questions_path %> </li>
         <li> <%= link_to 'New Question', new_question_path %></li>
-        <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
+        <li> <%= link_to 'My Questions', user_path(current_user.id) %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

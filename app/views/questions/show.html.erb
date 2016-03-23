@@ -1,15 +1,15 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Headstarter </a>
+      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> <span style="font-size: 24px">Headstarter </span> </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li> <%= link_to "Back to Questions", questions_path %> </li>
+        <li> <%= link_to "Hot Questions", questions_path %> </li>
         <li> <%= link_to 'New Question', new_question_path %></li>
          <% if user_signed_in? %>
-        <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
+        <li> <%= link_to 'My Questions', user_path(current_user.id) %></li>
         <% end %>
       </ul>
 
@@ -33,8 +33,9 @@
 
 <%= @questions.title %>
 <%= @questions.questions_content %><br>
-<%= @questions.user.user_name %> <br>
-<%= time_ago_in_words(@questions.created_at) + " ago" %>
+<span style="color: #33c107"> <%= time_ago_in_words(@questions.created_at) + " ago" %> by
+<%= @questions.user.user_name %> </span>
+
 
 
 
@@ -47,20 +48,19 @@
 
   <div class= "votespace">
 <%= link_to like_answer_path(listanswers), method: :put do %>
-  Good Answer
+  <span style="color: #33c107"> Good Answer </span>
 <%= listanswers.get_upvotes.size %>
   </div>
 
     <div class= "votespace">
 <%= link_to dislike_answer_path(listanswers), method: :put do %>
-  Please Improve
+  <span style="color: #33c107"> Please Improve </span>
   <%= listanswers.get_downvotes.size %>
      </div>
 </div>
      <% end %>
   <% end %>
 <% end %>
-
 
 </div>
 
