@@ -26,6 +26,7 @@
   font-size: 50px;
   color: #313131;
   font-family: 'Ubuntu Condensed', sans-serif;
+
 }
 
 .welcometext {
@@ -38,6 +39,7 @@ img {
   width: 100%;
   height: auto;
   opacity: 0.6;
+
 }
 
 // .btn-default {
@@ -122,4 +124,10 @@ li {
 
 .container {
   margin: 0,auto;
+}
+
+.font24px {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 }

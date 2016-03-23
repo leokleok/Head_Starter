@@ -41,10 +41,11 @@
 <li> <span style="font-weight: bold; color:#317EAC;"> Question: </span> <%= link_to truncate(question.questions_content, :length => 150), question %> <br>
 <%= time_ago_in_words(question.created_at) + " ago" %> by <%= question.user.user_name %> </li>
 
-<div class= "labels">
-<span class="label label-primary"> <%= question.education_level.edu_level %> </span>
+
+<span style= "margin-right:5px" class="label label-primary"> <%= question.education_level.edu_level %> </span>
 <span class="label label-success"><%= question.subject.subject_name %> </span> <br><br>
-</div>
+
+
 <% end %>
 
 </ul>

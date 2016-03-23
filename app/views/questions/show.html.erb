@@ -31,14 +31,13 @@
 
 <div class = "challenger">
 
-<div class="questiontitle"> <span style="font-weight: bold; color:#555555;">Title: </span> <%= @questions.title %> <br> </div>
-<div class="question"><span style="font-weight: bold; color:#317EAC;"> Question: </span> <%= @questions.questions_content %> </div> <br>
+<div class="questiontitle"> <span style="font-weight: bold; color:#555555; font-size: 24px;">Title: </span> <%= @questions.title %> <br> </div>
+<div class="question"><span style="font-weight: bold; color:#317EAC; font-size: 24px;"> Question: </span> <%= @questions.questions_content %> </div> <br>
 <span style="color: #33c107"> <%= time_ago_in_words(@questions.created_at) + " ago" %> by
 <%= @questions.user.user_name %> </span>
-
 <hr>
 
-<h2> Answers </h2>
+<h2 class="font24px"> Answers </h2>
 
 <% @answerlist.each do |listanswers| %>
 <li><span style="font-size: 18px; color:#555555;"> <%= listanswers.answers_content %> </span> </li> <br>
@@ -68,7 +67,7 @@
 
 
 <div class="solvebox" style="margin-left: 20px;">
-<h3>My Answer:</h3>
+<h3 class="font24px">My Answer:</h3>
 
 <%= form_for @answer, html: {class: "nifty_form"} do |f| %>
   <%= f.hidden_field :question_id, :value => @questions.id %>
