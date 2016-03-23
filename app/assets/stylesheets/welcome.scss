@@ -76,6 +76,15 @@ width: 10%;
   text-align: center;
 }
 
+.box {
+  background-color: #2fa4e7;
+  width: 300px;
+  height: 70px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 1px;
+}
+
 .questionslisting {
   font-size: 16px;
 }
@@ -88,18 +97,19 @@ li {
   list-style: none;
 }
 
+
 .questiontitle {
   font-size: 21px;
   color: #317EAC;
 }
 
-// .solvebox {
-//   align-content: center;
-//   text-align: center;
-// }
+.question {
+  font-size: 18px;
+}
+
 
 .challenger {
-  padding: 30px;
+  padding: 16px;
 }
 
 #votes {

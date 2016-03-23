@@ -17,8 +17,8 @@
         <li><%= link_to 'Back', questions_path %> </li>
 
         <li> <% if user_signed_in? %>
-          <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %> </li>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           <% else %>
           <%= link_to('Login', new_user_session_path)  %>
           <% end %>
@@ -28,58 +28,53 @@
   </div>
 </nav>
 
-<div class = "challenger">
-<h2> Challenger </h2>
 
-<%= @questions.title %>
-<%= @questions.questions_content %><br>
+<div class = "challenger">
+
+<div class="questiontitle"> <span style="font-weight: bold; color:#555555;">Title: </span> <%= @questions.title %> <br> </div>
+<div class="question"><span style="font-weight: bold; color:#317EAC;"> Question: </span> <%= @questions.questions_content %> </div> <br>
 <span style="color: #33c107"> <%= time_ago_in_words(@questions.created_at) + " ago" %> by
 <%= @questions.user.user_name %> </span>
 
+<hr>
 
-
-
-<br>
 <h2> Answers </h2>
 
 <% @answerlist.each do |listanswers| %>
-<li> <%= listanswers.answers_content %> </li>
+<li><span style="font-size: 18px; color:#555555;"> <%= listanswers.answers_content %> </span> </li> <br>
+<span style="color: #33c107"> <%= time_ago_in_words(listanswers.created_at) + " ago" %> by
+<%= listanswers.user.user_name %> </span>
+
 <div id="votes">
 
   <div class= "votespace">
 <%= link_to like_answer_path(listanswers), method: :put do %>
-  <span style="color: #33c107"> Good Answer </span>
+  <span style="color: #313131"> <i class="fa fa-thumbs-o-up"></i> Good Answer </span>
 <%= listanswers.get_upvotes.size %>
   </div>
 
     <div class= "votespace">
 <%= link_to dislike_answer_path(listanswers), method: :put do %>
-  <span style="color: #33c107"> Please Improve </span>
+  <span style="color: #313131"><i class="fa fa-pencil-square-o"></i> Needs Improvement </span>
   <%= listanswers.get_downvotes.size %>
+  <hr>
      </div>
 </div>
      <% end %>
   <% end %>
 <% end %>
-
 </div>
 
-<br>
-<br>
-<br>
 
 
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-<h3>Solve it here</h3>
+<div class="solvebox" style="margin-left: 20px;">
+<h3>My Answer:</h3>
 
 <%= form_for @answer, html: {class: "nifty_form"} do |f| %>
   <%= f.hidden_field :question_id, :value => @questions.id %>
 
   <%= f.label " " %>
-  <%= f.text_area :answers_content, size: "80x10" %>
+  <%= f.text_area :answers_content, size: "80x10" %> <br>
   <%= f.submit "Post", class: "btn btn-primary" %>
   <% end %>
-</div>
 </div>

@@ -10,7 +10,6 @@ before_action :authenticate_user!, :except => [:index]
     @answer = Answer.new
     @answerlist = Answer.where(:question_id => @questions.id)
 
-    # print @answerlist.inspect
   end
 
   def new

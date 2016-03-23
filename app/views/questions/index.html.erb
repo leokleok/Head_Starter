@@ -30,23 +30,24 @@
 
 
 <div class="pageheader">
-<h1>Hot Questions</h1>
+<h1> Hot Questions </h1></div>
 </div>
 
 <div class="questionslisting">
 <ul>
 <% @questions.each do |question| %>
-<li> <div class="questiontitle"> Title: <%= question.title %> </div> </li>
+<li> <div class="questiontitle"><span style="font-weight: bold; color:#555555;"> Title: </span> <%= question.title %> </div> </li>
 
-<li> Question: <%= link_to truncate(question.questions_content, :length => 150), question %> <br> <%= time_ago_in_words(question.created_at) + " ago" %>
-by <%= question.user.user_name %> </li>
+<li> <span style="font-weight: bold; color:#317EAC;"> Question: </span> <%= link_to truncate(question.questions_content, :length => 150), question %> <br>
+<%= time_ago_in_words(question.created_at) + " ago" %> by <%= question.user.user_name %> </li>
 
+<div class= "labels">
 <span class="label label-primary"> <%= question.education_level.edu_level %> </span>
 <span class="label label-success"><%= question.subject.subject_name %> </span> <br><br>
+</div>
 <% end %>
 
 </ul>
 </div>
-
 
 </div>

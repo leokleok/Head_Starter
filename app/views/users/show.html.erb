@@ -42,8 +42,8 @@
 
 <div class = "pastquestions">
 <% @questions.each do |question| %> <br>
-<%= question.title %> <br><br>
-<%= link_to question.questions_content, question %>  <br><br>
+<span style="font-weight: bold; color:#555555; font-size:20px;"> Title: <%= question.title %> </span> <br><br>
+<span style="font-size:18px;"> <%= link_to question.questions_content, question %> </span>  <br><br>
 <%= time_ago_in_words(question.created_at) + " ago" %>
 <%= link_to "Delete", question_path(question.id), method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>  <br>
 <% end %>

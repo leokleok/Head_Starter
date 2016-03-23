@@ -26,14 +26,13 @@
 
 <div class="pageheader">
 <h1> Hi <%= @user.user_name %>! </h1>
-<h3> <span style="color: #454545"> Learn From The Community. </span> Ask a Question! </h3>
+<h3> <span style="color: #454545"> Learn From The Community. Ask a Question!</span> </h3>
 </div>
 
 <br>
 <br>
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-3">
+<div class="row", align="center">
 
 <%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
 
@@ -50,5 +49,4 @@
   <%= f.submit "Help Me",  class: "btn btn-primary" %>
   <% end %>
 
-  </div>
 </div>
