@@ -1,19 +1,23 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Head Starter </a>
+      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Headstarter </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li> <%= link_to "Back to Questions", questions_path %> </li>
+        <li> <%= link_to 'New Question', new_question_path %></li>
+         <% if user_signed_in? %>
         <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Back', questions_path %> </li>
-        <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
+
         <li> <% if user_signed_in? %>
+          <li><%= link_to 'Edit Profile', edit_user_path(current_user.id) %></li>
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           <% else %>
           <%= link_to('Login', new_user_session_path)  %>
@@ -24,7 +28,7 @@
   </div>
 </nav>
 
-<div class ="">
+<div class = "challenger">
 <h2> Challenger </h2>
 
 <%= @questions.title %>
@@ -32,37 +36,44 @@
 <%= @questions.user.user_name %> <br>
 <%= time_ago_in_words(@questions.created_at) + " ago" %>
 
-<!-- This is to allow current user to be able to delete its own posts and not other people's post -->
-<!-- <% if @questions.user_id == current_user.id %><br>
-  <%= link_to "Delete", question_path, method: :delete, data:{ confirm: "Are you sure you want to delete?"} %>
-<% end %> -->
+
 
 <br>
 <h2> Answers </h2>
+
 <% @answerlist.each do |listanswers| %>
 <li> <%= listanswers.answers_content %> </li>
+<div id="votes">
+
+  <div class= "votespace">
 <%= link_to like_answer_path(listanswers), method: :put do %>
   Good Answer
-<%= listanswers.get_upvotes.size %> 
+<%= listanswers.get_upvotes.size %>
+  </div>
+
+    <div class= "votespace">
 <%= link_to dislike_answer_path(listanswers), method: :put do %>
   Please Improve
   <%= listanswers.get_downvotes.size %>
+     </div>
+</div>
      <% end %>
   <% end %>
 <% end %>
 
 
-
-<br>
-<br>
-<br>
-
-<div class="solvebox">
-<h3>Solve it here</h3>
 </div>
+
+<br>
+<br>
+<br>
+
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+<h3>Solve it here</h3>
+
 <%= form_for @answer, html: {class: "nifty_form"} do |f| %>
   <%= f.hidden_field :question_id, :value => @questions.id %>
 

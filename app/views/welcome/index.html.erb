@@ -9,23 +9,23 @@
 <br>
 
 <p id ="focuslearning"> Focussed Learning <p>
-<h4> Building collaborative communities with accessible enrichment knowledge for everyone. </h4>
+<h4> Empowering communities with accessible & collaborative enrichment knowledge. </h4>
 
 </div>
 
   <div class="welcomebutton">
 
 
-<h3><button type="button" class="btn btn-default">
+<p id="buttontext"><button type="button" class="btn btn-primary">
 <% if user_signed_in? %>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete, :id=> "buttontext") %>
 <% else %>
-<%= link_to('Login', new_user_session_path)  %>
+<%= link_to('Login', new_user_session_path, :id=> "buttontext")  %>
 <% end %>
-</button></h3>
+</button><p>
 
 
-<h3><button type="button" class="btn btn-default"> <%= link_to "Sign Up", new_user_registration_path %></button></h3>
+<p id="buttontext"> <button type="button" class="btn btn-primary">  <%= link_to "Sign Up", new_user_registration_path, :id=> "buttontext" %></button><p>
 
 
    </div>

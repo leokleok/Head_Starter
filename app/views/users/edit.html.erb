@@ -1,18 +1,19 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Head Starter </a>
+      <a class="navbar-brand"><i class="fa fa-caret-up fa-1x"> </i> Headstarter </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li> <%= link_to "Back to Questions", questions_path %> </li>
+        <li> <%= link_to 'New Question', new_question_path %></li>
         <li> <%= link_to 'My Question Board', user_path(current_user.id) %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
 
-  
+
         <li> <% if user_signed_in? %>
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           <% else %>
